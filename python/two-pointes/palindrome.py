@@ -11,16 +11,16 @@ def isPalindrome(s: str) -> bool:
     # traverse the string from left and right simultaneously
     while(left <= right):
         # jump over space and non alphanumeric char.
-        if not s[left].isalpha() or not s[left].isdigit():
+        if not s[left].isalpha() and not s[left].isdigit():
             left += 1
             continue
 
         # jump over space and non alphanumeric char.
-        if not s[right].isalpha() or not s[right].isdigit():
+        if not s[right].isalpha() and not s[right].isdigit():
             right -= 1
             continue
 
-        if (s[left].lower() != s[right].lower): return False
+        if (s[left].lower() != s[right].lower()): return False
 
         left += 1
         right -= 1
@@ -28,4 +28,4 @@ def isPalindrome(s: str) -> bool:
     return True
 
 # testing
-print(isPalindrome('A man, a plan, a canal: Panama'))
+print(isPalindrome('A man, a plan, a canal: Panama')) # expected output: True
