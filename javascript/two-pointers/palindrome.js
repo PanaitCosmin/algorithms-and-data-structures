@@ -10,19 +10,19 @@ function isPalindrome(s) {
     // traverse the string from left and right simultaneously
     while (left <= right) {
         // jump over a space or non alphanumeric char.
-        if (left === " " || !isAlpha(s[left])) {
+        if (s[left] === " " || !isAlpha(s[left])) {
             left += 1
             continue
         }
 
         // jump over a space or non alphanumeric char.
-        if (right === " " || !isAlpha(s[right])) {
+        if (s[right] === " " || !isAlpha(s[right])) {
             right -= 1
             continue
         }
         
         // compare left side char with right side char
-        if (s[left].toLowerCase() !== s[right.toLowerCase]) { return false }
+        if (s[left].toLowerCase() !== s[right].toLowerCase()) { return false }
 
         // continue to cross
         left += 1
@@ -34,9 +34,9 @@ function isPalindrome(s) {
 
 function isAlpha(char) {
     return (
-        char.toLowerCase() >= "a" && 
-        char.toUpperCase() >= "z" ||
-        char >= "0" && char <= "9" 
+        (char >= "a" && char <= "z") || 
+        (char >= "A" && char <= "Z") ||
+        (char >= "0" && char <= "9")
     )
 }
 
