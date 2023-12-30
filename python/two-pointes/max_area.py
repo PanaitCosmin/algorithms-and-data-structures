@@ -10,13 +10,15 @@
 
 def maxArea(height: list) -> int:
     res = 0
+    # create two pointers at start & end array
     left, right = 0, len(height) - 1
-
+    # loop through array
     while left < right:
+        # compute the area
         area = (right-left) * min(height[left], height[right])
-
+        # ave the higher area
         res = max(res, area)
-
+        # finds the next largest element
         if height[left] < height[right]:
             left += 1
         else:
