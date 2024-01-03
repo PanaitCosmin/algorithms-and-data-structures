@@ -26,7 +26,7 @@ function carFleet(target, position, speed) {
     const time = (target - pos) / spd;
     // save the time
     stack.push(time);
-    // create a fleet if the car behind reach the car ahead
+    // create a fleet if the car behind catches up the car ahead
     if (
       stack.length >= 2 &&
       stack[stack.length - 1] <= stack[stack.length - 2]
@@ -41,3 +41,4 @@ function carFleet(target, position, speed) {
 
 // testing
 console.log(carFleet(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]));
+// expected output: 3
