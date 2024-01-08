@@ -44,7 +44,7 @@ def hasCycle(head: Node) -> bool:
     # loop if we have a next node in list
     while fast and fast.next:
         # move slow and fast pointers
-        slow = head.next
+        slow = slow.next
         fast = fast.next.next
         # if these 2 meet then there is a cycle
         if slow == fast:
