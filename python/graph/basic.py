@@ -105,3 +105,68 @@ def hasPathUndirected(graph, src, dst, visited):
 
 print(hasPathUndirected(graph2, 'i', 'l', set()))
 # expected output: True
+
+# number of graph
+
+connecetedGraph = {
+    0: [8, 1 , 5],
+    1: [0],
+    5: [0, 8],
+    8: [0, 5],
+    2: [3, 4],
+    3: [2, 4],
+    4: [3, 2]
+}
+
+def connectedComponentsCount(graph):
+    visited = set()
+    count = 0
+
+    for node in graph:
+        if explore(graph, node, visited):
+            count += 1
+    
+    return count
+
+def explore(graph, curr, visited):
+    if curr in visited:
+        return False    
+    
+    visited.add(curr)
+
+    for neighbor in graph[curr]:
+        explore(graph, neighbor, visited)
+
+    return True
+
+# testing
+print(connectedComponentsCount(connecetedGraph))
+# expected output: 2
+
+
+# largest component
+def largestComponent(graph):
+    visited =  set()
+    largest = 0
+
+    for node in graph:
+        largest = max(largest, exploreGraph(graph, node, visited))
+    
+    return largest
+
+def exploreGraph(graph, curr, visited):
+    if curr in visited:
+        return 0
+    
+    visited.add(curr)
+
+    size = 1
+
+    for neighbor in graph[curr]:
+        size += exploreGraph(graph, neighbor, visited)
+
+    return size
+
+# testing
+print(largestComponent(connecetedGraph))
+# expected output: 4

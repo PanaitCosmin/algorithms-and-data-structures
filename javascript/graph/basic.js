@@ -109,3 +109,71 @@ function hasPathUndirected(graph, src, dst, visited) {
 
 console.log(hasPathUndirected(graph2, 'i', 'l', new Set()))
 // expected output: true
+
+// number of graphs
+
+const connecetedGraph = {
+    0: [8, 1 , 5],
+    1: [0],
+    5: [0, 8],
+    8: [0, 5],
+    2: [3, 4],
+    3: [2, 4],
+    4: [3, 2]
+}
+
+function connectedComponentsCount(graph) {
+    const visited = new Set()
+    let count = 0
+
+     for (let node in graph) {
+        if (explore(graph, node, visited)) count += 1
+     }
+
+     return count
+}
+
+function explore(graph, curr, visited) {
+    if (visited.has(String(curr))) return false
+
+    visited.add(String(curr))
+
+    for (let neighbor of graph[curr]) {
+        explore(graph, neighbor, visited)
+    }
+
+    return true
+}
+// testing
+console.log(connectedComponentsCount(connecetedGraph))
+// expected output: 2
+
+
+function largestComponent(graph) {
+    const visited = new Set()
+    let largest = 0
+
+    for (let node in graph) {
+        largest = Math.max(largest, exploreGraph(graph, node, visited)) 
+    }
+
+    return largest
+}
+
+function exploreGraph(graph, curr, visited) {
+    if (visited.has(String(curr))) return 0
+
+    visited.add(String(curr))
+    
+    let size = 1
+
+    for (let neighbor of graph[curr]) {
+        size += exploreGraph(graph, neighbor, visited)
+    }
+
+    return size
+}
+
+// testing
+console.log(largestComponent(connecetedGraph))
+// expected output: 4
