@@ -1,7 +1,10 @@
 # Write a function 'fib(n)' that takes in a number as an argument.
 # The function should return the n-th number of a Finonacci sequence.
 
-def fib(n: int, memo = {}) -> int:
+def fib(n: int, memo = None) -> int:
+    if memo is None:
+        memo = {}
+
     if n in memo: return memo[n]
     if n <= 2: return 1
     memo[n] = fib(n - 1, memo) + fib(n - 2, memo)

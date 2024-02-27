@@ -3,7 +3,10 @@
 # You may use an element of the array as many times as needed.
 # You may assume that all input numbers are nonnegative.
 
-def canSum(targetSum: int, numbers: list, memo = {}) -> bool:
+def canSum(targetSum: int, numbers: list, memo = None) -> bool:
+    if memo is None:
+        memo = {}
+    
     if targetSum in memo: return memo[targetSum]
     if targetSum == 0: return True
     if targetSum < 0: return False

@@ -2,7 +2,7 @@
 # The function should return an array containing the shortest combination of numbers that add up to exactly the targetSum.
 # If there is a tie for the shortest combination, you may return any one of the shortest.
 
-def bestSum(targetSum: int, numbers: list, memo ={}):
+def bestSum(targetSum: int, numbers: list, memo = None):
     if memo is None:
         memo = {}
     
