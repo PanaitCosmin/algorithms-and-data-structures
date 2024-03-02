@@ -26,3 +26,4 @@ console.log(allConstruct('purple', ['pu', 'rp','ple', 'l', 'e', 'r']))
 // expected output:
 // [ [ 'pu', 'rp', 'l', 'e' ], [ 'pu', 'r', 'ple' ] ]
 console.log(allConstruct('aaaaaaaaaaaaaay', ['a', 'aa', 'aaa', 'aaaa', 'aaaaa']))
+// expected output: []
