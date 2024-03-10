@@ -32,4 +32,4 @@ function climbStairs(n) {
 
 // testing
 console.log(climbStairs(3)) // expected output: 3
-console.log(climbStairs(4)) // expected output: 4
+console.log(climbStairs(4)) // expected output: 5
